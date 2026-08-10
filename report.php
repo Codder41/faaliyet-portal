@@ -4,6 +4,18 @@ require_once "functions.php";
 
 requireLogin();
 
+$user = $_SESSION["user"];
+
+$month = date("Y-m");
+
+if (isset($_GET["month"])) {
+    $month = $_GET["month"];
+}
+
+$start = new DateTime($month . "-01");
+$end   = new DateTime($month . "-01");
+$end->modify("last day of this month");
+
 ?>
 <!DOCTYPE html>
 
